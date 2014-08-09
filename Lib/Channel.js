@@ -12,6 +12,8 @@ var log = require('../log.js');
 var EventEmitter = require('events').EventEmitter;
 var inherits = require('util').inherits;
 
+var Settings = require('./Settings.js');
+
 var Channel = module.exports = function(name){
 	this.name = name;
 	this.bindLogger();
@@ -20,10 +22,18 @@ var Channel = module.exports = function(name){
 
 	this.modules = {};
 	this.loadCommandModules();
+
+	this.setDefaultSettings();
 }
 inherits(Channel, EventEmitter);
 
 var c = Channel.prototype;
+
+Settings.inject(c);
+
+c.defaultSettings = {
+
+};
 
 c.bindLogger = function(){
 	this.log = {};

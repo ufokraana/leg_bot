@@ -6,13 +6,13 @@
 
 var irc = require('irc');
 var log = require('./log.js');
+
 //We setup the options object and import the oauth token.
 var token = require('./key.js');
 var options = {
 	'userName': "leg_bot",
 	'realName': "leg_bot",
 	'password': token,
-	'debug': true,
 };
 
 var client = module.exports.client = new irc.Client("irc.twitch.tv", "leg_bot", options);
@@ -32,6 +32,15 @@ function channelEvent(channel, name, data){
 	channel = channelEventListeners[channel];
 	channel && channel.emit && channel.emit(name, data);
 }
+
+//We do a clean disconnect on SIGINT before dying
+process.on('SIGINT', function(){
+	log.log("Got SIGINT! Disconnecting IRC and exiting.");
+	client.disconnect("Time for off line LEG DAY!", function(){
+		log.log("Disconnected. Exiting. Thank you and goodnight!");
+		process.exit();
+	});
+});
 
 //We add a bunch of listeners to the IRC client that forward the events ot the appropriate Channel objects.
 client.on('message', function(user, channel, message){
