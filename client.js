@@ -4,6 +4,8 @@
 	channels to register themselves to receive events.
 */
 
+"use strict";
+
 var irc = require('irc');
 var log = require('./log.js');
 
@@ -32,15 +34,6 @@ function channelEvent(channel, name, data){
 	channel = channelEventListeners[channel];
 	channel && channel.emit && channel.emit(name, data);
 }
-
-//We do a clean disconnect on SIGINT before dying
-process.on('SIGINT', function(){
-	log.log("Got SIGINT! Disconnecting IRC and exiting.");
-	client.disconnect("Time for off line LEG DAY!", function(){
-		log.log("Disconnected. Exiting. Thank you and goodnight!");
-		process.exit();
-	});
-});
 
 //We add a bunch of listeners to the IRC client that forward the events ot the appropriate Channel objects.
 client.on('message', function(user, channel, message){
