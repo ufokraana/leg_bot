@@ -35,8 +35,8 @@ client.on('message', function(user, channel, message){
 	channel && channel.onMessage(user, message);
 });
 
-//These pass mod status to the channel object
-client.on('+mode', function(channel, by, mode, argument, message){
+//We use this to parse op status updates
+function parseMode(channel, by, mode, argument, message){
 	//What we need is an obscure part in the message object :(
 	var args = message.args;
 
@@ -45,8 +45,19 @@ client.on('+mode', function(channel, by, mode, argument, message){
 		return;
 	}
 	var user = args[2];
-	var channel = args[0];
-});
-client.on('-mode', function(channel, by, mode, argument, message){
-	log.debug('-mode', arguments);
-});
+	var channel = channels[args[0]];
+
+	if(!channel){
+		return;
+	}
+
+	if(args[1] == '+o'){
+		channel.onModded(user);
+	}
+	else if(args[1] == '-o'){
+		channel.onDemodded(user);
+	}
+}
+
+client.on('+mode', parseMode);
+client.on('-mode', parseMode);
