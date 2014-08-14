@@ -19,7 +19,7 @@ client.client.on('connect', function(){
 
 function loadChannels(){
 	var query = "SELECT name FROM channel WHERE active";
-	db.each(query,
+	db.db.each(query,
 		function(err, row){
 			channels[row.name] = new Channel(row.name);
 		}
