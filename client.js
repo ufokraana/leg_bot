@@ -55,7 +55,7 @@ function parseMode(channel, by, mode, argument, message){
 		channel.onModded(user);
 	}
 	else if(args[1] == '-o'){
-		channel.onDemodded(user);
+		channel.onUnmodded(user);
 	}
 }
 
