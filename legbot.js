@@ -5,12 +5,9 @@ var log = require('./log.js');
 log.log("Starting legbot");
 
 var client = require('./client.js');
-var db = require('./db.js');
 
 var Channel = require('./lib/channel.js');
 
-//This is a dictionary of channel objects.
-var channels = {};
 
 client.client.on('connect', function(){
 	log.log("Connected!");
@@ -18,12 +15,10 @@ client.client.on('connect', function(){
 });
 
 function loadChannels(){
-	var query = "SELECT name FROM channel WHERE active";
-	db.db.each(query,
-		function(err, row){
-			channels[row.name] = new Channel(row.name);
-		}
-	);
+	log.debug("Querying channels to join");
+	Channel
+		.findAll({active: true})
+		.success(client.attachChannel);
 }
 
 //We do a clean disconnect on SIGINT before dying

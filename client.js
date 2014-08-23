@@ -29,6 +29,10 @@ module.exports.registerChannel = function(channel, listener){
 	channels[channel] = listener;
 }
 
+module.exports.attachChannel = function(channel){
+	console.log(channel);
+}
+
 //We add a bunch of listeners to the IRC client that forward the events ot the appropriate Channel objects.
 client.on('message', function(user, channel, message){
 	channel = channels[channel];

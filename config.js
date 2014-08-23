@@ -1,4 +1,7 @@
 module.exports = {
+	db: {
+		file: './legbot.sqlite',
+	},
 	channel: {
 		//How long we keep an users mod status after twitch revokes it
 		//(Twitch grants and revokes mod status all the time)
