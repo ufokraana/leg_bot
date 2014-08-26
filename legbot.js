@@ -6,7 +6,7 @@ log.log("Starting legbot");
 
 var client = require('./client.js');
 
-var Channel = require('./lib/channel.js');
+var Channel = require('./lib/models.js').Channel;
 
 
 client.client.on('connect', function(){
@@ -17,8 +17,8 @@ client.client.on('connect', function(){
 function loadChannels(){
 	log.debug("Querying channels to join");
 	Channel
-		.findAll({active: true})
-		.success(client.attachChannel);
+		.findAll({where: ["active"]})
+		.success(client.attachChannels);
 }
 
 //We do a clean disconnect on SIGINT before dying

@@ -22,20 +22,28 @@ var client = module.exports.client = new irc.Client("irc.twitch.tv", "leg_bot", 
 //We store Channel objects that we pass messages to
 var channels = {};
 
-//This adds a new Channel object and also joins that channel on the IRC client.
-module.exports.registerChannel = function(channel, listener){
-	log.log("Entering channel", channel);
-	client.join(channel);
-	channels[channel] = listener;
+//This will get thrown a bunch of channel models that we should enter
+//and then start throwing messages at.
+module.exports.attachChannels = function(channels){
+	channels.forEach(attachChannel);
 }
 
-module.exports.attachChannel = function(channel){
-	console.log(channel);
+var attachChannel = module.exports.attachChannel = function(channel){
+	var hashtag = '#' + channel.values.name;
+
+	if(channels[hashtag]){
+		return;
+	}
+
+	channels[hashtag] = channel;
+	client.join(hashtag);
+	channel.onJoinIRC();
 }
 
 //We add a bunch of listeners to the IRC client that forward the events ot the appropriate Channel objects.
 client.on('message', function(user, channel, message){
-	channel = channels[channel];
+	var channel = channels[channel];
+
 	channel && channel.onMessage(user, message);
 });
 
@@ -56,10 +64,10 @@ function parseMode(channel, by, mode, argument, message){
 	}
 
 	if(args[1] == '+o'){
-		channel.onModded(user);
+		channel.onUserModded(user);
 	}
 	else if(args[1] == '-o'){
-		channel.onUnmodded(user);
+		channel.onUserUnmodded(user);
 	}
 }
 
