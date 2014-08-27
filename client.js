@@ -9,6 +9,8 @@
 var irc = require('irc');
 var log = require('./log.js');
 
+var channel = require('./lib/channel.js');
+
 //We setup the options object and import the oauth token.
 var token = require('./key.js');
 var options = {
@@ -24,20 +26,17 @@ var channels = {};
 
 //This will get thrown a bunch of channel models that we should enter
 //and then start throwing messages at.
-module.exports.attachChannels = function(channels){
-	channels.forEach(attachChannel);
+module.exports.joinChannels = function(channels){
+	channels.forEach(joinChannel);
 }
 
-var attachChannel = module.exports.attachChannel = function(channel){
-	var hashtag = '#' + channel.values.name;
-
-	if(channels[hashtag]){
+var joinChannel = module.exports.joinChannel = function(channel){
+	if(channels[channel.hashtag]){
 		return;
 	}
 
-	channels[hashtag] = channel;
-	client.join(hashtag);
-	channel.onJoinIRC();
+	channels[channel.hashtag] = channel;
+	client.join(channel.hashtag);
 }
 
 //We add a bunch of listeners to the IRC client that forward the events ot the appropriate Channel objects.
