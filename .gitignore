@@ -1,4 +1,4 @@
-key.js
+secrets.js
 node_modules
 *.swp
 legbot.sqlite

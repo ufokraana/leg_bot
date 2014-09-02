@@ -12,7 +12,7 @@ var log = require('./log.js');
 var channel = require('./lib/channel.js');
 
 //We setup the options object and import the oauth token.
-var token = require('./key.js');
+var token = require('./secrets.js').twitchToken;
 var options = {
 	'userName': "leg_bot",
 	'realName': "leg_bot",
@@ -34,10 +34,15 @@ var joinChannel = module.exports.joinChannel = function(channel){
 	if(channels[channel.hashtag]){
 		return;
 	}
+	log.log('joining', channel.hashtag);
 
 	channels[channel.hashtag] = channel;
 	client.join(channel.hashtag);
 }
+
+client.on('disconnected', function(){
+	log.log("DISCONNECTED", arguments);
+});
 
 //We add a bunch of listeners to the IRC client that forward the events ot the appropriate Channel objects.
 client.on('message', function(user, channel, message){
