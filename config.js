@@ -18,4 +18,17 @@ module.exports = {
 		interval: 5 * 60 * 1000,
 
 	},
+
+
+	gCal: {
+		url: "https://www.googleapis.com/calendar/v3/calendars/%calendar%/events",
+		params: "?key=%key%&maxResults=15&orderBy=startTime&singleEvents=true&timeMin=%after%&timeZone=Etc/UTC",
+		interval: 15 * 60 * 1000,
+		timeZone: 'America/Vancouver',
+		displayFormat: 'dddd do HH:mm',
+		calendars: {
+			'lrr': "loadingreadyrun.com_72jmf1fn564cbbr84l048pv1go@group.calendar.google.com",
+			'fan': "caffeinatedlemur@gmail.com",
+		},
+	}
 }
