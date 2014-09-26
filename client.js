@@ -34,14 +34,14 @@ var joinChannel = module.exports.joinChannel = function(channel){
 	if(channels[channel.hashtag]){
 		return;
 	}
-	log.log('joining', channel.hashtag);
+	log.info('joining', channel.hashtag);
 
 	channels[channel.hashtag] = channel;
 	client.join(channel.hashtag);
 }
 
 client.on('disconnected', function(){
-	log.log("DISCONNECTED", arguments);
+	log.info("DISCONNECTED", arguments);
 });
 
 //We add a bunch of listeners to the IRC client that forward the events ot the appropriate Channel objects.

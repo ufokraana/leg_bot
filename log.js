@@ -1,3 +1,17 @@
-module.exports.log = console.log.bind(console, "LOG");
-module.exports.debug = console.log.bind(console, "DEBUG");
-module.exports.error = console.log.bind(console, "ERROR");
+"use strict";
+
+var Winston = require('winston');
+
+var w = module.exports = new Winston.Logger;
+
+var options = {
+	filename: './logs/legbot.log',
+	silent: false,
+	colorize: false,
+	timestamp: true,
+	json: false
+};
+
+w.add(Winston.transports.DailyRotateFile, options);
+w.handleExceptions();
+
