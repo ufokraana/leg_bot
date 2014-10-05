@@ -15,8 +15,9 @@ module.exports = {
 		//How often we can query Twitch's API in milliseconds
 		waitTime: 10 * 1000,
 		//How often we DO query twitch's API in milliseconds
-		interval: 5 * 60 * 1000,
-
+		interval: 4 * 60 * 1000,
+		//How much the interval is randomized to stagger different channels querying.
+		jiggle: 2 * 60 * 1000,
 	},
 
 
