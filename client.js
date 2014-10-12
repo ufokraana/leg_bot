@@ -77,3 +77,7 @@ function parseMode(channel, by, mode, argument, message){
 
 client.on('+mode', parseMode);
 client.on('-mode', parseMode);
+
+client.on('ping', function(){
+	log.info("Got PING from twitch");
+});
