@@ -3,3 +3,5 @@ node_modules
 *.swp
 legbot.sqlite
 logs
+misc.log
+error.log
