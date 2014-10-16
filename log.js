@@ -10,7 +10,6 @@ var options = {
 	colorize: false,
 	timestamp: true,
 	json: false,
-	handleExceptions: true,
 };
 
 w.add(Winston.transports.DailyRotateFile, options);
