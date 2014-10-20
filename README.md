@@ -8,6 +8,8 @@ leg\_bot is a twitch chat bot for the Loading Ready Run Fan Streamer Community.
 * leg\_bot gives "useful" **!advice**. This advice is shared between channels to make sure that one streamers troubles with punching robots can help another win a MTGO draft.
 * leg_bot gives information about when the next LRR or fan stream starts (**!nextlrr** and **!nextfan**)
 
+If you want to contact me about leg_bot (bug reports, feedback, or if you want it in your channel) shoot me an email <urmasl@gmail.com>.
+
 ##Calendar
 
 * **!nextlrr** Tells you of any current and upcoming LRR streams.
