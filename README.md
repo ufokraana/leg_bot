@@ -24,8 +24,6 @@ Many of leg\_bots functions depend on it knowing what game is currently being pl
 * **!game** Shows what game leg\_bot thinks is being played.
 * **!game override X** Forces leg\_bot to use X as the current game value. If you leave out X or set it to "off", leg\_bot will revert to using the value given by Twitch.
 
-If leg\_bot gets an update from twitch that tells it that the game being played is the same one that has been set with **!game override**, leg_bot disables the override itself.  
-
 ##Statistics
 
 The statistics system for leg\_bot should be familiar to anyone who has used lrrbot or seen it in action.
