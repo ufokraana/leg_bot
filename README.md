@@ -46,3 +46,7 @@ The statistics system for leg\_bot should be familiar to anyone who has used lrr
 * **!advice source** Shows information about the last given bit of advice: What channel is it from, what game was being played, and who added it.
 * **!advice count** Shows you the ammount of advice that leg_bot knows.
 * **!advice add X** This allows channel moderators to add X as a new advice. Note, that since advices are tied to games, you'll need to use **!game override** to set a game when adding advices when a stream isn't live. Also, to avoid any tomfoolery, a piece of advice cannot start with any nonalphanumeric characters.
+
+##Misc
+
+* **!help** makes leg_bot give you a link to this page.
