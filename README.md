@@ -17,10 +17,12 @@ Both of these commands can be followed with a timezone in the Continent/City for
 
 ##Game
 
-Many of leg_bots functions depend on it knowing what game is currently being played. This is regularly queried from the Twitch API, but channel moderators can override it.
+Many of leg\_bots functions depend on it knowing what game is currently being played. This is regularly queried from the Twitch API, but channel moderators can override it. Leg\_bot retrieves twith API data every 90 seconds.
 
 * **!game** Shows what game leg\_bot thinks is being played.
 * **!game override X** Forces leg\_bot to use X as the current game value. If you leave out X or set it to "off", leg\_bot will revert to using the value given by Twitch.
+
+If leg\_bot gets an update from twitch that tells it that the game being played is the same one that has been set with **!game override**, leg_bot disables the override itself.  
 
 ##Statistics
 
@@ -40,4 +42,5 @@ The statistics system for leg\_bot should be familiar to anyone who has used lrr
 
 * **!advice** Makes leg\_bot give an "useful" bit of advice.
 * **!advice source** Shows information about the last given bit of advice: What channel is it from, what game was being played, and who added it.
+* **!advice count** Shows you the ammount of advice that leg_bot knows.
 * **!advice add X** This allows channel moderators to add X as a new advice. Note, that since advices are tied to games, you'll need to use **!game override** to set a game when adding advices when a stream isn't live. Also, to avoid any tomfoolery, a piece of advice cannot start with any nonalphanumeric characters.
