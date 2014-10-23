@@ -81,3 +81,7 @@ client.on('-mode', parseMode);
 client.on('ping', function(){
 	log.info("Got PING from twitch");
 });
+
+client.on('netError', function(e){
+	log.error('IRC lib netError:', e);
+});

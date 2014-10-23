@@ -4,4 +4,4 @@ node_modules
 legbot.sqlite
 logs
 misc.log
-error.log
+error.log*
