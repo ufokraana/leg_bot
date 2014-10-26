@@ -1,4 +1,8 @@
 module.exports = {
+	irc: {
+		userName: 'leg_bot',
+	},
+
 	db: {
 		file: './legbot.sqlite',
 	},
@@ -15,7 +19,7 @@ module.exports = {
 		//How often we DO query twitch's API in milliseconds
 		interval: 90 * 1000,
 		//Channels without leg_bot that we care about.
-		otherChannels: ['seabats', 'thepettersaga', 'loadingreadyrun', 'streambros'],
+		otherChannels: require('./otherchannels.js')
 	},
 
 

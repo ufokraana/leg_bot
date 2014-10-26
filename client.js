@@ -11,15 +11,17 @@ var log = require('./log.js');
 
 var channel = require('./lib/channel.js');
 
+var config = require('./config.js').irc;
+
 //We setup the options object and import the oauth token.
 var token = require('./secrets.js').twitchToken;
 var options = {
-	'userName': "leg_bot",
-	'realName': "leg_bot",
+	'userName': config.userName,
+	'realName': config.userName,
 	'password': token,
 };
 
-var client = module.exports.client = new irc.Client("irc.twitch.tv", "leg_bot", options);
+var client = module.exports.client = new irc.Client("irc.twitch.tv", config.userName, options);
 
 //We store Channel objects that we pass messages to
 var channels = {};
