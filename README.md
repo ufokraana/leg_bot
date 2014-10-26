@@ -15,7 +15,8 @@ If you want to contact me about leg_bot (bug reports, feedback, or if you want i
 * **!help** makes leg_bot give you a link to this page.
 * **!live** makes leg_bot give you a list of awesome channels that are live at the moment.
 
-Currently leg\_bot keeps track of channels that have leg\_bot in it and channels of the twitch loadingreadyrun team.
+I have tried to add as many channels of the LRR fan stream community to the !live command as I could find.
+If I am missing any, let me know.
 
 ##Calendar
 
