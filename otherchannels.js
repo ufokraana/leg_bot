@@ -4,7 +4,6 @@ module.exports = [
 	'loadingreadyrun',
 	'streambros',
 	'mowdownjoe',
-	'admiralmemo',
 	'darkmorford',
 	'nullrush',
 	'ekimekim3000',
@@ -20,4 +19,5 @@ module.exports = [
 	'lordwolfwood',
 	'doctormia',
 	'kinogami',
+	'devinsanity',
 ];
