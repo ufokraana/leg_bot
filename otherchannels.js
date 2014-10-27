@@ -19,4 +19,5 @@ module.exports = [
 	'antitonic',
 	'lordwolfwood',
 	'doctormia',
+	'kinogami',
 ];
