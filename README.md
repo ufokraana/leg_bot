@@ -14,6 +14,8 @@ If you want to contact me about leg_bot (bug reports, feedback, or if you want i
 
 * **!help** makes leg_bot give you a link to this page.
 * **!live** makes leg_bot give you a list of awesome channels that are live at the moment.
+* **!calendar** makes leg\_bot give you a link to the fan streamer calendar http://bit.ly/LRRFanStreamCalendar2
+* **!lrr** makes leg\_bot throw a link to http://www.loadingreadyrun.com to the channel.
 
 I have tried to add as many channels of the LRR fan stream community to the !live command as I could find.
 If I am missing any, let me know.
