@@ -20,4 +20,6 @@ module.exports = [
 	'doctormia',
 	'kinogami',
 	'devinsanity',
+	'charlofsweden',
+	'cattleprodlynn',
 ];
