@@ -5,3 +5,4 @@ legbot.sqlite
 logs
 misc.log
 error.log*
+db_backups

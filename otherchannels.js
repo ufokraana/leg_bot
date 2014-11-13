@@ -3,7 +3,6 @@ module.exports = [
 	'thepettersaga',
 	'loadingreadyrun',
 	'streambros',
-	'mowdownjoe',
 	'darkmorford',
 	'nullrush',
 	'ekimekim3000',
@@ -22,4 +21,7 @@ module.exports = [
 	'devinsanity',
 	'charlofsweden',
 	'cattleprodlynn',
+	'roosevelt',
+	'desertbus',
+	'ranneko',
 ];
