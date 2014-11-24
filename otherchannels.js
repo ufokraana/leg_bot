@@ -24,4 +24,5 @@ module.exports = [
 	'roosevelt',
 	'desertbus',
 	'ranneko',
+	'hiramas',
 ];
