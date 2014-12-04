@@ -14,7 +14,6 @@ module.exports = [
 	'magistermystax',
 	'mistahfixit',
 	'j_s_bach',
-	'antitonic',
 	'lordwolfwood',
 	'doctormia',
 	'kinogami',
@@ -25,4 +24,5 @@ module.exports = [
 	'desertbus',
 	'ranneko',
 	'hiramas',
+	'polluxprocyon',
 ];
