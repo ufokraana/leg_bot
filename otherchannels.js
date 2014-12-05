@@ -25,4 +25,5 @@ module.exports = [
 	'ranneko',
 	'hiramas',
 	'polluxprocyon',
+	'featherweight_',
 ];
