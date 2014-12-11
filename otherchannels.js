@@ -24,6 +24,6 @@ module.exports = [
 	'desertbus',
 	'ranneko',
 	'hiramas',
-	'polluxprocyon',
 	'featherweight_',
+	'hpbraincase',
 ];

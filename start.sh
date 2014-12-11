@@ -1,3 +1,3 @@
 #!/bin/sh
 
-node legbot.js >> misc.log 2>> error.log &
+forever -l legbot.log -o misc.log -e error.log start legbot.js
