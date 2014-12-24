@@ -6,8 +6,9 @@ log.info("Starting legbot");
 
 var client = require('./client.js');
 
-var Channel = require('./lib/channel.js')
+var Channel = require('./lib/channel.js');
 
+var Web = require('./web');
 
 client.client.on('connect', function(){
 	log.info("Connected!");

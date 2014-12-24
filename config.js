@@ -33,5 +33,9 @@ module.exports = {
 			'lrr': "loadingreadyrun.com_72jmf1fn564cbbr84l048pv1go@group.calendar.google.com",
 			'fan': "caffeinatedlemur@gmail.com",
 		},
+	},
+
+	web: {
+		port: 3000,
 	}
 }
