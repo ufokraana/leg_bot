@@ -16,6 +16,6 @@ app.use('/api', require('./api'));
 var serveStatic = require('serve-static');
 app.use('/static', serveStatic('./web/static'));
 
-app.use('/', require('./page'));
+//app.use('/', require('./page'));
 
 var server = app.listen(config.port);

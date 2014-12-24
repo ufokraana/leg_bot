@@ -25,5 +25,5 @@ module.exports = [
 	'ranneko',
 	'hiramas',
 	'featherweight_',
-	'hpbraincase',
+	'rednightmare7',
 ];
