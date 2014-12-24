@@ -19,7 +19,7 @@ function attachChannel(req, res, next){
 	}
 };
 
-app.get('/:channel', attachChannel);
+app.get('/:channel*', attachChannel);
 
 function dumpChannelInfo(req, res){
 	var dump = {};
@@ -59,3 +59,46 @@ function dumpChannelInfo(req, res){
 };
 
 app.get('/:channel$', dumpChannelInfo);
+
+app.get('/:channel/game', function(req, res){
+	res.send(res.locals.channel.getGame());
+})
+
+app.get('/:channel/stat/:stat', function(req, res){
+
+	var channel = res.locals.channel;
+
+	var game = channel.getGame();
+
+	var queryParams = {
+		where: {
+			ChannelId: channel.model.id,
+			command: req.params.stat
+		}
+	}
+
+	models.Statistic.find(queryParams)
+	.then(function(stat){
+		if(!stat){
+			return res.status(404).send("No such statistic");
+		}
+		
+		queryParams = {
+			where: {
+				game: game,
+				StatisticId: stat.id
+			}
+		}
+		
+		return models.Count
+		.find(queryParams)
+		.then(function(count){
+			if(count){
+				res.send(count.value + "");
+			}
+			else{
+				res.send(0 + "");
+			}
+		});
+	})
+})
