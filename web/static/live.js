@@ -44,10 +44,15 @@
 		var container = document.createElement('a');
 		container.classList.add('live_channel');
 		container.href = channel.channel.url;
+		container.target = "_blank";
 		
 		var header = document.createElement('h3');
 		header.classList.add('live_header');
 		header.innerHTML = channel.channel.display_name;
+
+		if(channel._lb_offline){
+			header.innerHTML += " ?";
+		}
 
 		var picture = document.createElement('img');
 		picture.classList.add('live_picture');
@@ -63,9 +68,8 @@
 		container.appendChild(game);
 
 		mainContainer.appendChild(container);
-
-		console.log(channel);
 	}
 	
 	requestData();
+	requestInterval = setInterval(requestData, 1000 * 90);
 })();

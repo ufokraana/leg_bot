@@ -26,4 +26,8 @@ module.exports = [
 	'hiramas',
 	'featherweight_',
 	'rednightmare7',
+	'rayfk',
+	'boofinka',
+	'rerout343',
+	'themoatman',
 ];
