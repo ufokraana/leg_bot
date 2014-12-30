@@ -1,0 +1,11 @@
+- var title = "Awesome channels currently live";
+doctype html
+html
+	include ./header.jade
+	body
+		h2 Awesome channels currently live
+		div#live_streams
+		script(
+			src='/static/live.js'
+			type='text/javascript'
+		)
