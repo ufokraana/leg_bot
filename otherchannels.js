@@ -1,5 +1,7 @@
 module.exports = [
 	'seabats',
+	'voxlunch',
+	'james_lrr',
 	'thepettersaga',
 	'loadingreadyrun',
 	'streambros',
@@ -27,7 +29,7 @@ module.exports = [
 	'featherweight_',
 	'rednightmare7',
 	'rayfk',
-	'boofinka',
-	'rerout343',
 	'themoatman',
+	'reilaoda',
+	'metricos',
 ];

@@ -1,0 +1,25 @@
+<!DOCTYPE html public lrrAWESOME>
+<head>
+	<meta charset='utf8'>
+</head>
+<script>
+	var apiPath = document.location.search;
+	apiPath = apiPath.substr(2, apiPath.length);
+	var apiURL = '/api/' + apiPath;
+
+	function queryAPI(){
+		var request = new XMLHttpRequest();
+		request.open('get', apiURL);
+		request.send();
+
+		request.onreadystatechange = function(){
+			if(request.readyState == 4){
+				document.body.innerHTML = request.response;
+			}
+		};
+	}
+
+	queryAPI();
+
+	setInterval(queryAPI, 30 * 1000);
+</script>

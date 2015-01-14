@@ -6,6 +6,8 @@
 	var requestInterval;
 	var request;
 
+	var title = document.title;
+
 	var mainContainer = document.getElementById('live_streams');
 
 	function requestData(){
@@ -33,6 +35,8 @@
 		mainContainer.innerHTML = "";
 		
 		var channels = Object.keys(twitchStreams);
+
+		document.title = "(" + channels.length + ") " + title;
 
 		channels = channels.sort();
 

@@ -26,7 +26,7 @@ function dumpChannelInfo(req, res){
 	var channel = res.locals.channel;
 
 	dump.name = channel.model.name;
-	dump.game = channel.getGame();
+	dump.game = channel.getGame() || "";
 
 	var queryParams = {
 		include: models.Count,
