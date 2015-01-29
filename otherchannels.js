@@ -30,6 +30,5 @@ module.exports = [
 	'rednightmare7',
 	'rayfk',
 	'themoatman',
-	'reilaoda',
 	'metricos',
 ];

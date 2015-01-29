@@ -26,7 +26,7 @@ function dumpChannelInfo(req, res){
 	var channel = res.locals.channel;
 
 	dump.name = channel.model.name;
-	dump.game = channel.getGame() || "";
+	dump.game = res.locals.game || channel.getGame() || "";
 
 	var queryParams = {
 		include: models.Count,
@@ -51,7 +51,7 @@ function dumpChannelInfo(req, res){
 	}
 
 	function parseCount(statistic, count){
-		if(count.game == dump.game){
+		if(count.game.toLowerCase() == dump.game.toLowerCase()){
 			dump.counts[statistic.command] = count.value;
 		}
 	}
@@ -63,6 +63,33 @@ app.get('/:channel$', dumpChannelInfo);
 app.get('/:channel/game', function(req, res){
 	res.send(res.locals.channel.getGame());
 })
+
+app.get('/:channel/games', function(req, res){
+	var channel = res.locals.channel;
+
+	var dump = [];
+
+	var games = {};
+
+	var queryParams = {
+		include: models.Count,
+	}
+
+	channel.model.getStatistics(queryParams).then(function(statistics){
+
+		statistics.forEach(parseStat);
+		dump = Object.keys(games);
+		res.send(dump);
+	});
+
+	function parseStat(stat){
+		stat.counts.forEach(parseCount.bind(null, stat));
+	}
+
+	function parseCount(statistic, count){
+		games[count.game] = true;
+	}
+});
 
 app.get('/:channel/stat/:stat', function(req, res){
 
@@ -101,4 +128,42 @@ app.get('/:channel/stat/:stat', function(req, res){
 			}
 		});
 	})
-})
+});
+
+app.get('/:channel/counts', function(req, res){
+
+	var channel = res.locals.channel;
+
+	var queryParams = {
+		where: {
+			ChannelId: channel.model.id,
+		},
+		include: models.Count
+	}
+
+	var dump = {};
+
+	models.Statistic.findAll(queryParams)
+	.then(function(stats){
+	
+		stats.forEach(function(stat){
+			var statDump = dump[stat.command] = {};
+			statDump.command = stat.command;
+			statDump.name = stat.name;
+			statDump.plural = stat.plural;
+
+			var statGames = statDump.games = {};
+
+			stat.counts.forEach(function(count){
+				statGames[count.game] = count.value;
+			});
+		});
+
+		res.send(JSON.stringify(dump));
+	})
+});
+
+app.get('/:channel/game/:game', function(req, res){
+	res.locals.game = req.params.game;
+	return dumpChannelInfo(req, res);
+});
