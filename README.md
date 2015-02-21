@@ -13,7 +13,7 @@ If you want to contact me about leg_bot (bug reports, feedback, or if you want i
 ##Help
 
 * **!help** makes leg_bot give you a link to this page.
-* 
+
 ##Calendar
 
 * **!nextlrr** Tells you of any current and upcoming LRR streams.
