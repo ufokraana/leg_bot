@@ -64,6 +64,7 @@
 
 		var game = document.createElement('div');
 		game.classList.add('live_game');
+		channel = channel.channel || channel;
 		game.innerHTML = "Playing: " + (channel.game || "Something?");
 
 

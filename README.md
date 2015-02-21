@@ -10,16 +10,9 @@ leg\_bot is a twitch chat bot for the Loading Ready Run Fan Streamer Community.
 
 If you want to contact me about leg_bot (bug reports, feedback, or if you want it in your channel) shoot me an email <urmasl@gmail.com>.
 
-##Misc
+##Help
 
 * **!help** makes leg_bot give you a link to this page.
-* **!live** makes leg_bot give you a list of awesome channels that are live at the moment.
-* **!calendar** makes leg\_bot give you a link to the fan streamer calendar http://bit.ly/LRRFanStreamCalendar2
-* **!lrr** makes leg\_bot throw a link to http://www.loadingreadyrun.com to the channel.
-
-I have tried to add as many channels of the LRR fan stream community to the !live command as I could find.
-If I am missing any, let me know.
-
 ##Calendar
 
 * **!nextlrr** Tells you of any current and upcoming LRR streams.
@@ -54,3 +47,15 @@ The statistics system for leg\_bot should be familiar to anyone who has used lrr
 * **!advice source** Shows information about the last given bit of advice: What channel is it from, what game was being played, and who added it.
 * **!advice count** Shows you the ammount of advice that leg_bot knows.
 * **!advice add X** This allows channel moderators to add X as a new advice. Note, that since advices are tied to games, you'll need to use **!game override** to set a game when adding advices when a stream isn't live. Also, to avoid any tomfoolery, a piece of advice cannot start with any nonalphanumeric characters.
+
+##Misc
+
+* **!live** makes leg_bot give you a list of awesome channels that are live at the moment.
+* **!calendar** makes leg\_bot give you a link to the fan streamer calendar http://bit.ly/LRRFanStreamCalendar2
+* **!lrr** makes leg\_bot throw a link to http://www.loadingreadyrun.com to the channel.
+* **!fancrossing** maksed leg\_bot throw a link to the survivor\_tv fan crossing spreadsheet.
+
+I have tried to add as many channels of the LRR fan stream community to the !live command as I could find.
+If I am missing any, let me know.
+
+
