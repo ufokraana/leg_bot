@@ -46,6 +46,11 @@ client.on('disconnected', function(){
 	log.info("DISCONNECTED", arguments);
 });
 
+client.on('connect', function(){
+	//this is a dumb hack, but it keeps us working without having
+	//to rewrite the moderator code.
+	client.conn.write("CAP REQ :twitch.tv/membership\r\n");
+});
 //We add a bunch of listeners to the IRC client that forward the events ot the appropriate Channel objects.
 client.on('message', function(user, channel, message){
 	var channel = channels[channel];
@@ -58,13 +63,14 @@ function parseMode(channel, by, mode, argument, message){
 	//What we need is an obscure part in the message object :(
 	var args = message.args;
 
+	
+	var user = args[2];
+	var channel = channels[args[0]];
+	
 	//we do not care about anything other than O (giggity)
 	if(mode != 'o'){
 		return;
 	}
-	var user = args[2];
-	var channel = channels[args[0]];
-
 	if(!channel){
 		return;
 	}
